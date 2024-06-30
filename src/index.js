@@ -9,11 +9,13 @@ import ReactDom from 'react-dom'
 // }
 //JSX RULES
 // return single element
+// React Nested Components
 function Greeting(){
   return (
     <>
     <div>
-      <h1>Hello  world</h1>
+      <Message/>
+      <Person/>
       <ul>
         <li>Item1</li>
         <li>Item2</li>
@@ -25,5 +27,11 @@ function Greeting(){
     
   );
 }
+const Person = () => {
+  return (
+    <h1>Sidharth Verma</h1>
+  )
+}
+const Message = () => <h1>Hello  world</h1>
 ReactDom.render(<Greeting/> ,document.getElementById('root'))
 //ReactDom.render(<Greet/> ,document.getElementById('root'))
