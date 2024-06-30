@@ -1,17 +1,29 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from 'react'
+import ReactDom from 'react-dom'
+// stateless functional component
+// always return JSX
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+// const Greet = () => <h1>'Hello!'</h1>;
+// const Greeting = () => {
+//   return React.createElement('h1', {}, 'Hellow world')
+// }
+//JSX RULES
+// return single element
+function Greeting(){
+  return (
+    <>
+    <div>
+      <h1>Hello  world</h1>
+      <ul>
+        <li>Item1</li>
+        <li>Item2</li>
+        <li>Item3</li>
+      </ul>
+    </div>
+    <div></div>
+    </>
+    
+  );
+}
+ReactDom.render(<Greeting/> ,document.getElementById('root'))
+//ReactDom.render(<Greet/> ,document.getElementById('root'))
