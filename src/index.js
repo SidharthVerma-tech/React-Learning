@@ -1,37 +1,34 @@
 import React from 'react'
 import ReactDom from 'react-dom'
-// stateless functional component
-// always return JSX
+// CSS
+import './index.css'
 
-// const Greet = () => <h1>'Hello!'</h1>;
-// const Greeting = () => {
-//   return React.createElement('h1', {}, 'Hellow world')
-// }
-//JSX RULES
-// return single element
-// React Nested Components
-function Greeting(){
+const firstBook = {
+  author :'Julia Burchell',
+  title :'Lower Secondary English Students Book: Stage 9',
+  img : 'https://m.media-amazon.com/images/I/41YLzV-E3yL._SY445_SX342_.jpg',
+}
+const secondBook = {
+  title : 'More Days at the Morisaki Bookshop:',
+  author : 'Satoshi Yagisawa',
+  img : 'https://m.media-amazon.com/images/I/51ptSTNYEeL._SY445_SX342_.jpg',
+}
+function BookList(){
   return (
-    <>
-    <div>
-      <Message/>
-      <Person/>
-      <ul>
-        <li>Item1</li>
-        <li>Item2</li>
-        <li>Item3</li>
-      </ul>
-    </div>
-    <div></div>
-    </>
+    <section className='booklist'>      
+     <Book author={firstBook.author} title={firstBook.title} img={firstBook.img}/>
+     <Book title={secondBook.title} author={secondBook.author} img={secondBook.img}/>
+    </section>
     
   );
 }
-const Person = () => {
-  return (
-    <h1>Sidharth Verma</h1>
-  )
+const Book = (props) => {
+    const {img, author, title} = props
+  return<article className='book'>
+    <img src={props.img}/>
+      <h1>{props.title}</h1>
+      <h4>{props.author.toUpperCase()}</h4>
+  </article>
 }
-const Message = () => <h1>Hello  world</h1>
-ReactDom.render(<Greeting/> ,document.getElementById('root'))
+ReactDom.render(<BookList/> ,document.getElementById('root'))
 //ReactDom.render(<Greet/> ,document.getElementById('root'))
